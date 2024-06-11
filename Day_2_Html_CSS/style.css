@@ -1,0 +1,100 @@
+/* h4{
+    color: brown;
+}
+
+.css_group{
+    color: green;
+    background-color: aqua;
+}
+
+.css_group, .css_grouph3{
+     color: red;
+    background-color: yellow;
+    text-decoration: underline;
+}
+    */
+
+    /* .root{
+        background-color: aquamarine;
+        padding: 12px;
+        margin: 24px;
+        border: 3px solid black;
+        width: 200px;
+    } */
+
+    *{
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+    }
+
+    /* div{
+        background-color: aquamarine;
+        font-size: 2em;
+    }
+
+    p{
+        background-color: brown;
+        font-size: 4em;
+        width: 10em;
+    } */
+
+    /* div{
+        background-color: aqua;
+        text-align: center;
+        width: fit-content;
+        margin: auto;
+    }
+
+    .btn{
+        display: block;
+        margin: 10px auto;
+        width: fit-content;
+        background-color:brown;
+        color: white;
+        padding: 12px;
+        border: none;
+        border-radius: 6px;
+        cursor: pointer;
+    }
+
+    .big{
+        font-size: 24px;
+    }
+
+    .small{
+        font-size: 12px;
+    } */
+
+
+    /* html{
+        font-size: 20px;
+    }
+
+    div{
+        font-size: 30px;
+    }
+
+    p{
+        font-size: 2rem;
+    } */
+
+    /* button{
+        background-color: aquamarine;
+        width: 100vw;
+        height: 100vh;
+    } */
+
+  /* div h3{
+        color: brown;
+    } */
+
+    ol li h3{
+        color: green;
+    }
+
+    #imgg img{
+        background-color: aqua;
+        padding: 10px;
+        width: 100%;
+    }

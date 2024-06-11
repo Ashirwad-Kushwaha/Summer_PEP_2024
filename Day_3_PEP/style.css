@@ -1,0 +1,96 @@
+.btn {
+    display: block;
+    background-color: rgb(4, 170, 109);
+    color: rgb(255, 255, 255);
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    text-align: center;
+    margin: 20px auto;
+    opacity: 0.8;
+    transition: scale 300ms ease;
+}
+
+
+.btn:hover {
+    opacity: 1;
+    cursor: pointer;
+    scale: 1.2;
+}
+
+a:visited{
+    color: red;
+}
+
+a{
+    text-decoration: none;
+}
+
+ul{
+    background-color: aquamarine; 
+}
+
+li{
+    display: inline;
+}
+
+li:first-child{
+    color: blue;
+}
+
+li:last-child{
+    color: red;
+}
+
+p:first-child{
+    color: blue;
+}
+
+li:nth-child(4){
+    color: red;
+}
+
+p:last-child{
+    color: green;
+}
+
+li:hover{
+    color: white;
+    background-color: brown;
+    border-radius: 5px;
+    padding: 3px;
+}
+
+.login-btn{
+    color: blue;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+.parent{
+    height: 200px;
+    align-items: center;
+    justify-content: space-between;
+background-color: aquamarine;
+/* padding: 10px; */
+display: flex;
+}
+
+.child{
+    padding: 10px;
+    border: 1px solid black;
+    border-radius: 5px;
+    /* margin: 10px; */
+    background-color: orange;
+    /* flex-basis: 120px; */
+    /* flex-shrink: 0; */
+}
+
+/* .child2{
+    flex-grow:2;
+    flex-shrink: 1;
+}
+.child1{
+    flex-grow:1;
+    flex-shrink: 1;
+} */

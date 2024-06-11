@@ -1,0 +1,71 @@
+*{
+    padding: 0;
+    margin:0;
+    box-sizing: border-box;
+}
+
+body>div{
+    background-color: blueviolet;
+    margin: 48px;
+    height: 150px;
+    width: 150px;
+}
+
+.c1,.c2,.c3,.c4{
+    background-color: aqua;
+    /* color: white; */
+    font-size: 32px;
+    height: 50px;
+    width: 50px;
+}
+
+/* .c2{
+    position: relative;
+    left: 50px;
+}
+
+.c3{
+    position: relative;
+    left: 50px;
+} */
+
+
+/* .c1{
+    position: relative;
+    top: 10px;
+    left: 10px;
+    z-index: 1;
+}
+
+.c2{
+    position: relative;
+    left: 30px;
+}
+
+.c3{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+}
+
+.c4{
+    position: relative;
+} */
+
+.c1{
+    position: absolute;
+    z-index: 1;
+}
+
+.c2{
+    position: relative;
+
+}
+
+.c3{
+    position: absolute;
+}
+
+.c4{
+    position: absolute;
+}

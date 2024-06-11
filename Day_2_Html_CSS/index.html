@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML & CSS</title>
+</head>
+<body>
+    <form method="get"  action="contact.html" novalidate>
+        <label for="username">Username: </label>
+        <input type="text" placeholder="Enter your name" name="username" autocomplete="off" required><br><br>
+        <label for="age">Age: </label>
+        <input type="number" placeholder="Enter your age" name="age" value="18"><br><br>
+
+
+        <label for="gender">Gender : </label>
+        <input type="radio" name="gender" value="male" id="m1" checked><label for="m1">Male</label>
+        <input type="radio" name="gender" value="female" id="f1"><label for="f1">Female</label><br><br>
+
+        <label for="hobbies">Hobbies</label>
+        <input type="checkbox" id="h1" name="hobbies" value="Drawing"><label for="h1">Drawing</label>
+        <input type="checkbox" id="h2" name="hobbies" value="Reading"><label for="h2">Reading</label>
+        <input type="checkbox" id="h3" name="hobbies" value="Playing"><label for="h3">Playing</label>
+        <input type="checkbox" id="h4" name="hobbies" value="Sleeping" checked><label for="h4">Sleeping</label>
+        <br>
+        <label for="description">description</label>
+        <textarea name="description" rows="4" id="description"></textarea>
+        <br><br>
+        <input type="submit" value="Done">
+        <input type="reset" value="Reset">
+        <br>
+        <button type="submit">Submit</button>
+        <button type="reset">Reset</button>
+    </form>
+</body>
+</html>
