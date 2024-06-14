@@ -4,7 +4,7 @@
     box-sizing: border-box;
 }
 
-/* .parent{
+.parent{
     padding: 24px;
     background-color: aquamarine;
 
@@ -20,10 +20,10 @@
         height: 100px;
         background-color: chocolate;
     }
-} */
+}
 
 
-.container{
+/* .container{
     background-color: aquamarine;
     height: 500px;
     margin: 100px
@@ -35,4 +35,4 @@
     height: 40px;
     width: 40px;
     background-color: blue;
-}
+} */
