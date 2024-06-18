@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Big_Baazaar</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <a href="#index.html">
+            <img src="logo.png" alt="logo" id="logo">
+        </a>
+        <div id="search-bar">
+            <input type="text" placeholder="Search your product here..." id="search">
+            <img id="search-btn" src="search.png" alt="search" onclick="search()">
+        </div>
+        <div class="menu">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <a href="#">Login</a>
+        </div>
+    </nav>
+    <div id="tab">
+        <a href="#" onclick="categories()">Smartphones</a>
+        <div id="sort">
+            <a href="#" onclick="sortlth()" id="lth">Sort: Low to High</a>
+            <a href="#" onclick="sorthtl()" id="htl">Sort: High to Low</a>
+        </div>
+    </div>
+    <div id="root"></div>
+    <div class="nxt">
+        <button id="next" onclick="next()">Next-></button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
