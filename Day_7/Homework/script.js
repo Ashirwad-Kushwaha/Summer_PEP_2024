@@ -43,14 +43,14 @@ function next(){
 }
 
 function sortlth(){
-    fetch('https://dummyjson.com/products?sortBy=title&order=asc')
+    fetch('https://dummyjson.com/products?sortBy=price&order=asc')
     .then(res => res.json())
     .then(data => renderUI(data))
     .catch(err => console.error(err));
 }
 
 function sorthtl(){
-    fetch('https://dummyjson.com/products?sortBy=title&order=desc')
+    fetch('https://dummyjson.com/products?sortBy=price&order=desc')
     .then(res => res.json())
     .then(data => renderUI(data))
     .catch(err => console.error(err));

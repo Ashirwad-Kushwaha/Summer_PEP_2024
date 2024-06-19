@@ -1,0 +1,44 @@
+// What is backend?
+// The backend is the server-side of an application.
+//  It's responsible for handling requests and sending responses back 
+// to the client. It's typically written in languages 
+// like JavaScript, Python, Ruby, Java, etc. and runs on a server. 
+// The backend communicates with a database to store and retrieve data, 
+// and it's responsible for handling all the logic of the application.
+
+
+/**
+ * A router is a component in a web application that maps URLs to functions. 
+ * It's responsible for handling incoming requests and directing them to 
+ * the appropriate handler functions. 
+ * 
+ * In the context of a Node.js application, a router can be implemented using 
+ * a variety of libraries such as Express.js, Koa.js, or Hapi.js.
+ * 
+ * The router takes an incoming request and matches it against a series of 
+ * routes defined by the developer. It then calls the appropriate handler 
+ * function to generate a response for that request.
+ * 
+ * Routers are an essential part of web application development, as they 
+ * allow developers to separate the concerns of routing and handling 
+ * requests, making the codebase more modular and easier to maintain.
+ */
+
+
+/**
+ * A MAC (Media Access Control) address is a unique identifier assigned to every device 
+ * connected to a computer network. It's used to identify the device on the network and 
+ * prevent collisions between devices. 
+ * 
+ * A MAC address is typically a 6-byte number, written in hexadecimal format like 
+ * 00:11:22:33:44:55. 
+ * 
+ * MAC addresses are used in the link layer of the OSI (Open Systems Interconnection) model. 
+ * They're used for local-area networks (LANs) and are mandatory for all network devices.
+ */
+
+
+// Bandwidth refers to the maximum amount of data that can be transmitted in a specific time period.
+// Throughput is the amount of data that can be transmitted over a given period of time.
+// ISP (Internet Service Provider) is a company that provides internet access to end users.
+// DNS (Domain Name System) is a global system that translates domain names into IP addresses.
