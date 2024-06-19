@@ -1,0 +1,1 @@
+how array fn works with or without curly bracket
