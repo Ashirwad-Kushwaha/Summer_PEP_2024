@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Js Callbacks & Promises</title>
+    <style>
+
+        body{
+            margin: 0;
+            padding: 0;
+        }
+
+        #root{
+            margin: 20px;
+            display: flex;
+            flex-wrap: wrap;
+            height: 74vh;
+            justify-content: space-evenly;
+        }
+
+        .navbar{
+            display: flex;
+            justify-content: space-evenly;
+            align-items: center;
+            width: 100vw;
+            height: 10vh;
+            background-color: cornflowerblue;
+        }
+
+        .navbar a{
+            text-decoration: none;
+            color: white;
+            font-size: 20px;
+        }
+
+
+        #search{
+            width: 40vw;
+            height: 5vh;
+            border-radius: 10px;
+            font-size: 20px;
+            color: white;
+            padding: 10px;
+            background-color: transparent;
+        }
+
+        #footer{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100vw;
+            height: 10vh;
+            background-color: cornflowerblue;
+        }   
+    </style>
+</head>
+
+<body>
+    <!-- <p>Hello</p>
+    <button>Click</button>
+    <input type="text" placeholder="Enter"> -->
+    <nav class="navbar">
+        <input type="text" placeholder="Search" id="search" >
+        <button id="search-btn" onclick="search()">Search</button>
+        <a href="#">Home</a>
+        <a href="#">About</a>
+        <a href="#">Contact</a>
+        <a href="#">Login</a>
+    </nav>
+    <div id="root">
+        <a href="/products" value="products">View Products</a>
+    </div>
+    <footer id ="footer">
+        <p>Made by Ashirwad</p>
+    </footer>
+    <!-- <script src="script.js"></script> -->
+</body>
+</html>
