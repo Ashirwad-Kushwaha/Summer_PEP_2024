@@ -9,7 +9,7 @@
         body{
             margin: 0;
             padding: 0;
-            background-image: url('../bg.png');
+            box-sizing: border-box;
         }
 
         main{
@@ -24,6 +24,11 @@
             align-items: center;
             height: 10vh;
             background-color: cornflowerblue;
+        }
+
+        #logo{
+            /* width: 10vw; */
+            height: 8vh;
         }
 
         .navbar a{
@@ -43,10 +48,24 @@
             background-color: transparent;
         }
 
+        #search-btn{
+            padding: 10px;
+            background-color: brown;
+            color: white;
+            border-radius: 10px;
+            border: none;
+            height: 8vh;
+        }
+
+        #search-btn:hover{
+            cursor: pointer;
+        }
+
         #footer{
             display: flex;
             justify-content: center;
             align-items: center;
+            bottom: 0;
             height: 10vh;
             background-color: cornflowerblue;
         }   
@@ -54,8 +73,6 @@
         .product-card{
             width: 300px;
             border: 1px solid black;
-            background: rgb(34,193,195);
-            background: linear-gradient(180deg, rgba(34,193,195,1) 0%, rgba(253,187,45,1) 100%);
             padding: 20px;
             border-radius: 10px;
             display: flex;
@@ -63,6 +80,18 @@
             align-items: center;
             justify-content: center;
             margin : 10px;
+        }
+
+        .product-card a{
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            border-radius: 10px;
+            background-color: brown;
+        }
+
+        .product-card:hover{
+            transform: scale(1.1);
         }
 
     </style>
@@ -73,8 +102,12 @@
     <button>Click</button>
     <input type="text" placeholder="Enter"> -->
     <nav class="navbar">
-        <input type="text" placeholder="Search" id="search" >
-        <button id="search-btn" onclick="search()">Search</button>
+        <img src="https://res.cloudinary.com/dxecoctrm/image/upload/v1719144256/vaqknhux9uefbhkxkdvc.png" alt="image here" id="logo">
+
+        <div id="btn">
+            <input type="text" placeholder="Search" id="search" >
+            <button type="button" id="search-btn" onclick="searching()">Search</button>
+        </div>
         <a href="/">Home</a>
         <a href="/products">Products</a>
         <a href="/">Contact</a>
@@ -87,5 +120,17 @@
         <p>Made by Ashirwad</p>
     </footer>
     <!-- <script src="script.js"></script> -->
+
+    <script>
+        function searching() {
+            console.log("I am in products");
+            const searchValue = document.getElementById('search').value;
+            if (searchValue) {
+                window.location.href = `/search?query=${searchValue}`;
+            }
+            
+        }
+    </script>
+
 </body>
 </html>
