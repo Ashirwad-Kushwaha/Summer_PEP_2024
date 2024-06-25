@@ -2,22 +2,25 @@ var express = require("express");
 
 const fsPromises = require("fs/promises");
 
-const {getProducts, postProducts, putProducts, deleteProducts, patchProducts} = require("./controllers/productControllers");
-
+const productRouter = require("./routes/productRoutes");
+const morgan = require("morgan");
 
 const app = express();
+
+//INTERNAL MIDDLEWARE
 app.use(express.json());
 
 
-// app.get("/products", getProducts);
-// app.post("/products", postProducts);
-app.route("/products").get(getProducts).post(postProducts);
+//custom middleware
+app.use((req, res, next) => {
+    console.log("req: ", req.url, req.method);
+    next();
+});
 
+//EXTERNAL MIDDLEWARE
+app.use(morgan("dev"));
 
-// app.put("/products/:id", putProducts);
-// app.delete("/products/:id", deleteProducts);
-// app.patch("/products/:id", patchProducts);
-app.route("/products/:id").put(putProducts).delete(deleteProducts).patch(patchProducts);
+app.use("/products",productRouter);
 
 
 app.listen(2000);
