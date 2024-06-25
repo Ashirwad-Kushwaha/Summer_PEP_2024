@@ -137,6 +137,6 @@ const app = http.createServer(async (req, res) => {
 });
 
 app.listen(1400, () => {
-    console.log(`Server is runnign at http://localhost:1400`);
+    console.log(`Server is runnig at http://localhost:1400`);
 });
   
