@@ -22,7 +22,7 @@ const checkId = async (req, res, next) => {
 }
 
 const getProducts = async (req, res) => {
-    const products = await productModel.find();
+    const products = await productModel.find().limit(10);
     res.send({ status: "success", data: { products } });
 };
 
@@ -89,7 +89,18 @@ const updateProduct = async (req, res) => {
     }
 };
 
+const listProducts = async (req, res) => {
+    const {limit = 10, ...filters} = req.query;
+    
+
+    const pizzasQuery = productModel.find(filters);
+    const limitedPizzas = await pizzasQuery.limit(limit);
+
+    res.json({ status: "success", data: { pizza: limitedPizzas, } });
+}
+
+
 module.exports = {
-    getProducts, createProduct, replaceProduct, deleteProduct, updateProduct, checkId
+    getProducts, createProduct, replaceProduct, deleteProduct, updateProduct, checkId, listProducts
 } 
 
