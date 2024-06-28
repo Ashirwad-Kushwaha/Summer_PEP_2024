@@ -19,18 +19,9 @@ const client = new MongoClient(dbUrl, {
   }
 });
 
-async function run() {
-  try {
-    const databse = client.db(process.env.DB_NAME);
-    const products = databse.collection("products");
-    await products.insertOne({
-      name: "Laptop",
-      price: 45000
-    })
-    console.log("<-----DB Connected-------->");
-  }
-  catch (e) {
-    console.error(e);
-  }
-}
-run().catch(console.dir);
+const database = client.db(process.env.DB_NAME);
+const productsCollection=database.collection("products");
+
+
+
+module.exports = {productsCollection, database};
