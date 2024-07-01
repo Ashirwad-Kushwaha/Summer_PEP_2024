@@ -22,7 +22,10 @@ const checkId = async (req, res, next) => {
 }
 
 const getProducts = async (req, res) => {
-    const products = await productModel.find().limit(10);
+    const{limit , page}= req.query;
+    const products = await productModel.find().limit(10).skip((page - 1) * limit).limit(limit);
+
+    const countDocuments = await productModel.countDocuments();
     res.send({ status: "success", data: { products } });
 };
 
@@ -90,13 +93,44 @@ const updateProduct = async (req, res) => {
 };
 
 const listProducts = async (req, res) => {
-    const {limit = 10, ...filters} = req.query;
+    console.log(req.query);
+    try {
+    const {limit = 10, q="",fields="", sort="",page= 1, ...filters} = req.query;
     
+    const selection_fields=fields.split("_").join(" ")
+    console.log(selection_fields)
+    const sort_fields=sort.split("_").join(" ")
 
-    const pizzasQuery = productModel.find(filters);
-    const limitedPizzas = await pizzasQuery.limit(limit);
+    let pizzasQuery = productModel.find(filters);
+    pizzasQuery = pizzasQuery.where("title").regex(q);
+    pizzasQuery = pizzasQuery.select(selection_fields);
 
-    res.json({ status: "success", data: { pizza: limitedPizzas, } });
+
+    const countQuery = pizzasQuery.clone();
+    const totalData = await countQuery.countDocuments();
+
+
+    pizzasQuery = pizzasQuery.sort(sort_fields);
+
+
+
+    pizzasQuery = pizzasQuery.skip((page-1)*limit);
+    pizzasQuery =await pizzasQuery.limit(limit);
+
+
+
+
+    // const pizzasQuery = productModel.find({
+    //     title:{$regex:q}
+    // });
+
+    res.json({ status: "success",
+        results: pizzasQuery.length,
+        totalData: totalData,
+        data: { pizza: pizzasQuery, }, });
+    } catch (error) {
+        res.status(500).json({ status: "failed", message: "Internal Server Error", info: error, });
+    }
 }
 
 
