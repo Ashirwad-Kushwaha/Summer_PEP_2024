@@ -22,11 +22,14 @@ const checkId = async (req, res, next) => {
 }
 
 const getProducts = async (req, res) => {
-    const{limit , page}= req.query;
+    const {limit , page}= req.query;
     const products = await productModel.find().limit(10).skip((page - 1) * limit).limit(limit);
-
+    
     const countDocuments = await productModel.countDocuments();
-    res.send({ status: "success", data: { products } });
+    res.send({ status: "success",
+        results: products.length,
+        totalData: countDocuments,
+         data: { products } });
 };
 
 const createProduct = async (req, res) => {
@@ -95,7 +98,7 @@ const updateProduct = async (req, res) => {
 const listProducts = async (req, res) => {
     console.log(req.query);
     try {
-    const {limit = 10, q="",fields="", sort="",page= 1, ...filters} = req.query;
+    const {limit = 10, q="",fields="", sort="price",page= 1, ...filters} = req.query;
     
     const selection_fields=fields.split("_").join(" ")
     console.log(selection_fields)
