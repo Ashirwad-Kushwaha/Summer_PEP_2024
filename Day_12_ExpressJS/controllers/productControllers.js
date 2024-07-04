@@ -60,6 +60,7 @@ const getProducts = async (req, res) => {
 const postProducts = async (req, res)=>{
     const body = req.body;
     const products = req.products;
+    console.log(products)
 
     let lastId = 0;
     if(products.length!= 0) lastId = products[products.length - 1].id;

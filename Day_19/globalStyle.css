@@ -8,6 +8,8 @@ nav{
     display: flex;
     margin: 0;
     gap: 10px;
+    color: white;
+    height: 8vh;
     align-items: center;
     justify-content: space-between;
     /* width: 100vw; */
@@ -44,7 +46,7 @@ nav{
     button{
         background-color: #febd69;
         border: none;
-        color: #232F3E;
+        /* color: #232F3E; */
         padding: 8px 16px;
         font-weight: 600;
         cursor: pointer;
@@ -101,4 +103,62 @@ nav{
 
 #homepage-img{
     width: 100%;
+}
+
+.homepage-body{
+    position: relative;
+    background-color: #FFD004;
+
+}
+
+.products-card-container{
+    background-color: transparent;
+    position: relative;
+    top: -160px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    padding: 0px 10px;
+    justify-content: center;
+}
+
+.products-info-card{
+    background-color: #ffff;
+    color: black;
+    height: 390px;
+    width: 330px;
+    padding: 10px;
+    margin: 10px;
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+
+    .products-card-element{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        padding: 0px 10px;
+        justify-content: center;
+        
+
+        .product-card{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 150px;
+            width: 130px;
+            overflow: hidden;
+            /* border: 5px solid black; */
+
+            img{
+                height: 100%;
+                overflow: idden;
+                /* width: 100%; */
+            }
+        }
+    }
+
 }
