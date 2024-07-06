@@ -1,6 +1,6 @@
 import ReactDOM from 'react-dom/client';
 import "./globalStyle.css";
-import HomePage from "./src/pages/homePage";
+import HomePage from './src/pages/homePage';
 import SearchPage from './src/pages/amazonSearchPage';
 
 import {
