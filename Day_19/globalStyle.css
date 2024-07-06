@@ -162,3 +162,29 @@ nav{
     }
 
 }
+
+.search-page{
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+
+    .search-elements{
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        justify-content: center;
+    }
+}
+
+.product-card-search{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid black;
+    margin: 10px;
+    border-radius: 10px;
+    width: 300px;
+    /* height: 336px; */
+    padding: 10px;
+}

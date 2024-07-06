@@ -1,59 +1,54 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
 
-const SearchPage = (props) => {
+import { useNavigate } from "react-router-dom";
 
-    const customStyle = {
-        padding: "48px",
-        textAlign: "center",
-        backgroundColor: "yellow",
+const SearchPage = (props) => {
+    const {categories, searchText, setSearchText} = props;
+
+    const navigate = useNavigate();
+    
+    const [products, setProducts] = useState([]);
+    // console.log(searchText)
+
+    async function getData(){
+        const res = await fetch(`https://dummyjson.com/products/search?q=${searchText}`);
+        const data = await res.json();
+        console.log(data)
+        setProducts(data.products);
+        
+    }
+
+    useEffect(()=>{
+        getData()
+    }, [searchText]);
+
+    const opendescriptionpage = (id) => {
+        navigate(`/description/${id}`);
     };
 
-    // let searchText = "";
-    const [searchText, setSearchText] = useState();
-
-
-    console.log("initially", searchText);
-
-    const handleSearch = (e) => {
-        const val = e.target.value;
-        // searchText = val;
-        // console.log(searchText);
-
-        setSearchText(val);
-    }
-
-    // let products=[];
-    const [products, setProducts] = useState([]);
-    async function getData(){
-        const res = await fetch('https://dummyjson.com/products');
-        const data = await res.json();
-        console.log(data);
-        // products
-        setProducts(data.products);
-    }
-
-
-    const {categories} = props;
     return(
-        <div>
-        <Navbar/>
+        <>
+        <Navbar setSearchText={setSearchText}/>
         <CategoryBar categories = {categories}/>
-        <div style={customStyle}>
-        <input type="text" onChange={handleSearch}/>
-        </div>
-        <div style={customStyle}>
+        
+        <div className="search-page">
         <h1>The search text is : {searchText}</h1>
         <hr />
-        <button onClick={getData}>Get Data</button>
+        <div className="search-elements">
         {
             products.map((elem) => {
-                return <p>{elem.title}</p>;
-            })
+                return (<div key={elem.id} className="product-card-search" onClick={()=>opendescriptionpage(elem.id)}>
+                    <img src={elem.thumbnail} alt="" />
+                    <p>{elem.title}</p>
+                    <p>${elem.price}</p>
+                    </div>)
+                    })
         }
         </div>
         </div>
+        </>
     )
 }
 

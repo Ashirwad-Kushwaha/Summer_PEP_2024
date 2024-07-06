@@ -3,6 +3,13 @@ import "./globalStyle.css";
 import HomePage from "./src/pages/homePage";
 import SearchPage from './src/pages/amazonSearchPage';
 
+import {
+    createBrowserRouter,
+    RouterProvider,
+  } from "react-router-dom";
+import { useEffect, useState } from 'react';
+import ProductDescription from './src/pages/productDescription';
+
 
 
 const parent = document.getElementById("root");
@@ -72,16 +79,48 @@ const productInfoCards = [
     },
 ];
 
+
+
+
 const App = () => {
+
+    const [products, setProducts] = useState([]);
+    // console.log(searchText)
+
+    async function getData(){
+        const res = await fetch(`https://dummyjson.com/products?limit=194`);
+        const data = await res.json();
+        // console.log(data)
+        setProducts(data.products);
+        
+    }
+
+    useEffect(()=>{
+        getData()
+    }, []);
+
+    const [searchText, setSearchText] = useState("");
+    const router = createBrowserRouter([
+        {
+            path: "/",
+            element: <HomePage searchText={searchText} setSearchText={setSearchText} categories={categories} productInfoCards={productInfoCards}/>
+        },
+        {
+            path: "/search",
+            element: <SearchPage searchText={searchText} setSearchText={setSearchText} categories={categories}/>
+        },
+        {
+            path: "/description/:id",
+            element: <ProductDescription 
+            categories={categories}
+            products={products}
+            />
+        }
+    ])
+
     return (
-        <div>
-           {/*<HomePage 
-            productInfoCards = {productInfoCards}
-           categories = {categories}
-           />*/}
-        {<SearchPage categories = {categories}/>}
-        </div>
+        <RouterProvider router={router} />
     );
 };
 
-root.render(App());
+root.render(<App/>);
