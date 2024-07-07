@@ -1,10 +1,10 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-nav{
+nav {
     display: flex;
     margin: 0;
     gap: 10px;
@@ -19,7 +19,7 @@ nav{
 }
 
 
-.homepage-root-container{
+.homepage-root-container {
     background-color: #232F3E;
     color: #ffff;
     display: flex;
@@ -27,7 +27,7 @@ nav{
     justify-content: center;
 }
 
-.search-bar{
+.search-bar {
     display: flex;
     height: 6vh;
     margin: 10px;
@@ -36,14 +36,17 @@ nav{
     flex-grow: 1;
     overflow: hidden;
     border-radius: 8px;
-    input{
+
+    input {
         flex-grow: 1;
     }
-    select{
+
+    select {
         padding: 5px;
-        border: none;        
+        border: none;
     }
-    button{
+
+    button {
         background-color: #febd69;
         border: none;
         /* color: #232F3E; */
@@ -53,14 +56,15 @@ nav{
     }
 }
 
-.category-bar{
+.category-bar {
     display: flex;
     background-color: #232F3E;
     padding: 10px 16px;
     height: 40px;
     overflow: hidden;
     align-items: center;
-    button{
+
+    button {
         background-color: transparent;
         color: #ffff;
         border: none;
@@ -71,13 +75,13 @@ nav{
         cursor: pointer;
         padding: 4px 8px;
 
-        #ham-menu{
+        #ham-menu {
             width: 20px;
             height: 20px;
         }
     }
 
-    .category-items{
+    .category-items {
         display: flex;
         align-items: center;
         gap: 10px;
@@ -86,32 +90,32 @@ nav{
     }
 }
 
-.homepage-body{
+.homepage-body {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     background-color: #FFD004;
 
-    .products-card-container{
+    .products-card-container {
         display: flex;
         flex-wrap: wrap;
-        
+
         gap: 10px;
     }
 }
 
-#homepage-img{
+#homepage-img {
     width: 100%;
 }
 
-.homepage-body{
+.homepage-body {
     position: relative;
     background-color: #FFD004;
 
 }
 
-.products-card-container{
+.products-card-container {
     background-color: transparent;
     position: relative;
     top: -160px;
@@ -122,7 +126,7 @@ nav{
     justify-content: center;
 }
 
-.products-info-card{
+.products-info-card {
     background-color: #ffff;
     color: black;
     height: 390px;
@@ -135,15 +139,15 @@ nav{
     flex-direction: column;
     flex-wrap: wrap;
 
-    .products-card-element{
+    .products-card-element {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
         padding: 0px 10px;
         justify-content: center;
-        
 
-        .product-card{
+
+        .product-card {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -153,7 +157,7 @@ nav{
             overflow: hidden;
             /* border: 5px solid black; */
 
-            img{
+            img {
                 height: 100%;
                 overflow: idden;
                 /* width: 100%; */
@@ -163,12 +167,12 @@ nav{
 
 }
 
-.search-page{
+.search-page {
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
 
-    .search-elements{
+    .search-elements {
         display: flex;
         flex-wrap: wrap;
         gap: 10px;
@@ -176,7 +180,7 @@ nav{
     }
 }
 
-.product-card-search{
+.product-card-search {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -187,4 +191,78 @@ nav{
     width: 300px;
     /* height: 336px; */
     padding: 10px;
+}
+
+
+.productView {
+    display: flex;
+
+    .productDescriptionView {
+        display: flex;
+        margin-top: 50px;
+        padding: 20px;
+        align-items: center;
+        
+
+        .productImage {
+            display: flex;
+            flex-direction: column;
+            width: 400px;
+            justify-content: center;
+        }
+
+        .productDetails {
+            display: flex;
+            flex-direction: column;
+
+            h1 {
+                margin-bottom: 10px;
+            }
+
+            .brand {
+                color: #007185;
+
+                p {
+                    font-size: 20px;
+                    margin-bottom: 5px;
+                }
+            }
+
+            .productPrice {
+                margin-top: 5px;
+                display: flex;
+                font-size: 35px;
+
+                .discount {
+                    color: red;
+                    margin-right: 10px;
+                }
+            }
+
+            .productbtn {
+                margin-top: 10px;
+                display: flex;
+                gap: 10px;
+
+                button {
+                    cursor: pointer;
+                    font-size: 15px;
+                    width: 150px;
+                    
+                    padding: 10px 20px;
+                    border-radius: 10px;
+                    border: none;
+                }
+
+                .cartbtn {
+                    background-color: #F7CA00;
+                }
+
+                .buybtn {
+                    background-color: #FA8900;
+                }
+
+            }
+        }
+    }
 }
