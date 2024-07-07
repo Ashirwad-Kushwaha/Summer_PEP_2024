@@ -39,8 +39,8 @@ nav {
 
     input {
         flex-grow: 1;
-        width: 70px;
-        height: 50px;
+        /* width: 70px;
+        height: 50px; */
     }
 
     select {
@@ -60,6 +60,16 @@ nav {
     }
 
 
+}
+
+@media screen and (max-width: 768px) {
+    nav p {
+      display: none;
+    }
+
+    nav{
+        justify-content:left
+    }
 }
 
 
