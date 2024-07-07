@@ -112,6 +112,8 @@ const App = () => {
         {
             path: "/description/:id",
             element: <ProductDescription 
+            searchText={searchText}
+            setSearchText={setSearchText}
             categories={categories}
             products={products}
             />

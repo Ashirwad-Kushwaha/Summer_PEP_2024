@@ -1,21 +1,27 @@
 import { useEffect, useState } from "react";
 import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 
-const ProductDescription = ({ products, categories }) => {
+const ProductDescription = ({setSearchText, products, categories }) => {
   const { id } = useParams();
   console.log(id);
 
-  // const [product, setProduct] = useState(null);
+  const navigate = useNavigate();
+
+  const openSearchPage = () => {
+    navigate("/search");
+};
+
 
   if (!products) {
     return <div>Loading...</div>;
   }
 
+
   return (
     <>
-      <Navbar />
+      <Navbar setSearchText={setSearchText} openSearchPage={openSearchPage}/>
       <CategoryBar categories={categories} />
       <div className="productView">
         {products.map((elem) => {
@@ -33,7 +39,7 @@ const ProductDescription = ({ products, categories }) => {
                   
                   <div className="productPrice">
                     <p className="discount">-{elem.discountPercentage}%</p>
-                    <p>{elem.price}</p>
+                    <p>${elem.price}</p>
                   </div>
                   
                   <p> Stock: {elem.stock}</p>

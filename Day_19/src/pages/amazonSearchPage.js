@@ -43,7 +43,9 @@ const SearchPage = (props) => {
                     <img src={elem.thumbnail} alt="" />
                     <p>{elem.title}</p>
                     <p>${elem.price}</p>
+                    <button>Add to Cart</button>
                     </div>)
+
                     })
         }
         </div>
