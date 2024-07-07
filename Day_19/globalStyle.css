@@ -224,9 +224,10 @@ nav {
 
 .productView {
     display: flex;
-
+    
     .productDescriptionView {
         display: flex;
+        flex-wrap: wrap;
         margin-top: 50px;
         padding: 20px;
         align-items: center;
