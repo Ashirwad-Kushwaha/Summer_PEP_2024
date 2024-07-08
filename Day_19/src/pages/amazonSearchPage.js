@@ -3,26 +3,16 @@ import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
 
 import { useNavigate } from "react-router-dom";
+import useGetProducts from "../hooks/useGetProducts";
 
 const SearchPage = (props) => {
     const {categories, searchText, setSearchText} = props;
 
     const navigate = useNavigate();
-    
-    const [products, setProducts] = useState([]);
+    const products = useGetProducts(searchText);
     // console.log(searchText)
 
-    async function getData(){
-        const res = await fetch(`https://dummyjson.com/products/search?q=${searchText}`);
-        const data = await res.json();
-        console.log(data)
-        setProducts(data.products);
-        
-    }
 
-    useEffect(()=>{
-        getData()
-    }, [searchText]);
 
     const opendescriptionpage = (id) => {
         navigate(`/description/${id}`);
@@ -31,7 +21,7 @@ const SearchPage = (props) => {
     return(
         <>
         <Navbar setSearchText={setSearchText}/>
-        <CategoryBar categories = {categories}/>
+        <CategoryBar/>
         
         <div className="search-page">
         <h1>The search text is : {searchText}</h1>

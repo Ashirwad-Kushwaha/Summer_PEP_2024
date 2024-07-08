@@ -1,11 +1,14 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
 import { useNavigate, useParams } from "react-router-dom";
+import useGetProductById from "../hooks/useGetProductById";
+import AppContext from "../context/appContext";
 
-const ProductDescription = ({setSearchText, products, categories }) => {
-  const { id } = useParams();
-  console.log(id);
+const ProductDescription = () => {
+
+  const {setSearchText} = useContext(AppContext);
+  const params = useParams();
 
   const navigate = useNavigate();
 
@@ -13,20 +16,18 @@ const ProductDescription = ({setSearchText, products, categories }) => {
     navigate("/search");
 };
 
+const elem = useGetProductById(params.id);
 
-  if (!products) {
-    return <div>Loading...</div>;
-  }
+  // if (!products) {
+  //   return <div>Loading...</div>;
+  // }
 
 
   return (
     <>
       <Navbar setSearchText={setSearchText} openSearchPage={openSearchPage}/>
-      <CategoryBar categories={categories} />
+      <CategoryBar/>
       <div className="productView">
-        {products.map((elem) => {
-          if (elem.id == id) {
-            return (
               <div key={elem.id} className="productDescriptionView">
                 <div className="productImage">
                   <img src={elem.thumbnail} alt="" />
@@ -41,6 +42,7 @@ const ProductDescription = ({setSearchText, products, categories }) => {
                     <p className="discount">-{elem.discountPercentage}%</p>
                     <p>${elem.price}</p>
                   </div>
+                  <p><s>${Math.round((elem.price)/(1-(elem.discountPercentage/100))).toFixed(2)}</s></p>
                   
                   <p> Stock: {elem.stock}</p>
                   <div className="productbtn">
@@ -49,9 +51,6 @@ const ProductDescription = ({setSearchText, products, categories }) => {
                   </div>
                 </div>
               </div>
-            );
-          }
-        })}
       </div>
     </>
   );

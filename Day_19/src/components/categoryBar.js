@@ -1,8 +1,10 @@
+import { useContext } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
+import AppContext from "../context/appContext";
 
 
-const CategoryBar = (props) => {
-    const {categories} = props;
+const CategoryBar = () => {
+    const {categories} = useContext(AppContext);
   return (
     <div className="category-bar">
     <button >

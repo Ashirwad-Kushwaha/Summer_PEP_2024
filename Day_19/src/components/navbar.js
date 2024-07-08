@@ -1,14 +1,19 @@
+import { useContext } from "react";
 import { IoSearch } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
+import AppContext from "../context/appContext";
 
-const Navbar = ({setSearchText, openSearchPage})=>{
-
+const Navbar = ({openSearchPage})=>{
+    const {setSearchText} = useContext(AppContext);
     const handleSearch = (e)=>{
         setSearchText(e.target.value);
     }
 
     return(
         <nav>
-        <h3 id='logo'>amazon.in</h3>
+        <Link to='/' style={{ textDecoration: 'none' }}>
+        <h3 id='logo' >amazon.in</h3>
+        </Link>
         <p id='location'>Deliver :  <br /> to India</p>
         <div className="search-bar">
             <select name="All" id="" ></select>
