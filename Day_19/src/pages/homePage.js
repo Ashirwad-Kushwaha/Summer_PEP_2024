@@ -11,7 +11,9 @@ import useGetProducts from '../hooks/useGetProducts';
 const HomePage = () => {
     const navigate = useNavigate();
 
-    const products = useGetProducts();
+    const products = useGetProducts({
+        isSearchTextDependent: false
+    });
 
     let count = 0;
     const reqLength = 16;

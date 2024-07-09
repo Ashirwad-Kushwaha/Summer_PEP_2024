@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import AppContext from "../context/appContext";
 
 const Navbar = ({openSearchPage})=>{
-    const {setSearchText} = useContext(AppContext);
+    const {setSearchText, cart} = useContext(AppContext);
     const handleSearch = (e)=>{
         setSearchText(e.target.value);
     }
@@ -23,7 +23,7 @@ const Navbar = ({openSearchPage})=>{
             </button>
         </div>
         <p id='account'>Hello! <br /> Ashirwad</p>
-        <p id='cart'>Cart</p>
+        <p id='cart' title={JSON.stringify(cart)}>Cart</p>
 
     </nav>
     )

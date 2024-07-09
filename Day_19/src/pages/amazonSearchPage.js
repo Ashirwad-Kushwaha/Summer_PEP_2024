@@ -1,16 +1,20 @@
-import { useEffect, useState } from "react";
+import { useContext} from "react";
 import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
 
 import { useNavigate } from "react-router-dom";
 import useGetProducts from "../hooks/useGetProducts";
+import AppContext from "../context/appContext";
 
 const SearchPage = (props) => {
-    const {categories, searchText, setSearchText} = props;
+    const {categories} = props;
+
 
     const navigate = useNavigate();
-    const products = useGetProducts(searchText);
+    const products = useGetProducts();
     // console.log(searchText)
+
+    const {addToCart} = useContext(AppContext);
 
 
 
@@ -20,11 +24,10 @@ const SearchPage = (props) => {
 
     return(
         <>
-        <Navbar setSearchText={setSearchText}/>
-        <CategoryBar/>
+        <Navbar/>
+        <CategoryBar categories={categories}/>
         
         <div className="search-page">
-        <h1>The search text is : {searchText}</h1>
         <hr />
         <div className="search-elements">
         {
@@ -33,7 +36,7 @@ const SearchPage = (props) => {
                     <img src={elem.thumbnail} alt="" />
                     <p>{elem.title}</p>
                     <p>${elem.price}</p>
-                    <button>Add to Cart</button>
+                    <button onClick={() => addToCart(elem)}>Add to Cart</button>
                     </div>)
 
                     })

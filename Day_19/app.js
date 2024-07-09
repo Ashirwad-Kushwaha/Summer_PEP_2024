@@ -101,7 +101,37 @@ const App = () => {
         }
     ])
 
+    const [cart, setCart] = useState([]);
+    const addToCart = (elem) => {
+        const isPresent = cart.findIndex((cI) => cI.id === elem.id);
+        if(isPresent === -1){
+            const newCart = [...cart];
+            newCart.push({
+                title: elem.title,
+                img: elem.thumbnail,
+                price: elem.price,
+                id: elem.id,
+                count:1,
+            });
+            setCart(newCart);
+        } else{
+            const newCart = cart.map((cartItem) =>{
+                if(cartItem.id === elem.id){
+                    const newCartItem = {...cartItem};
+                    newCartItem.count = newCartItem.count + 1;
+                    return newCartItem;
+                } else return cartItem;
+        })
+        setCart(newCart);
+        }
+
+    }
+
+    console.log(cart);
+
     const contextValues = {
+        cart,
+        addToCart,
         searchText,
         setSearchText,
         categories

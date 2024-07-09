@@ -1,4 +1,4 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext} from "react";
 import CategoryBar from "../components/categoryBar";
 import Navbar from "../components/navbar";
 import { useNavigate, useParams } from "react-router-dom";
@@ -12,9 +12,13 @@ const ProductDescription = () => {
 
   const navigate = useNavigate();
 
+  const {addToCart} = useContext(AppContext);
+
   const openSearchPage = () => {
     navigate("/search");
 };
+
+
 
 const elem = useGetProductById(params.id);
 
@@ -46,7 +50,7 @@ const elem = useGetProductById(params.id);
                   
                   <p> Stock: {elem.stock}</p>
                   <div className="productbtn">
-                    <button className="cartbtn">Add to Cart</button>
+                    <button className="cartbtn" onClick={() => addToCart(elem)}>Add to Cart</button>
                     <button className="buybtn">Buy Now</button>
                   </div>
                 </div>
