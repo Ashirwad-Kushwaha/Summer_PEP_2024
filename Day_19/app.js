@@ -11,6 +11,9 @@ import {
 import { useEffect, useState } from 'react';
 import ProductDescription from './src/pages/productDescription';
 import AppContext from './src/context/appContext';
+import SignUp from './src/pages/signUp';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -98,6 +101,10 @@ const App = () => {
         {
             path: "/description/:id",
             element: <ProductDescription/>
+        },
+        {
+            path: "/signup",
+            element: <SignUp/>
         }
     ])
 
@@ -138,10 +145,17 @@ const App = () => {
     }
 
     return (
+        <>
         <AppContext.Provider value={contextValues}>
         <RouterProvider router={router} />
         </AppContext.Provider>
+        </>
     );
 };
 
-root.render(<App/>);
+root.render(
+    <>
+    <App/>
+    <ToastContainer/>
+    </>
+);
