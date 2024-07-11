@@ -14,6 +14,7 @@ import AppContext from './src/context/appContext';
 import SignUp from './src/pages/signUp';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Login from './src/pages/login';
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -105,6 +106,10 @@ const App = () => {
         {
             path: "/signup",
             element: <SignUp/>
+        },
+        {
+            path: "/login",
+            element: <Login/>
         }
     ])
 

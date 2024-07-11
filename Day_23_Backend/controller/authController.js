@@ -19,6 +19,11 @@ const signUp = async (req, res)=>{
             return res.status(400).json({message:"User already exist"})
         }
 
+
+        if(!email.includes("@")){
+            return res.status(400).json({message:"Please provide valid email"})
+        }
+
     
         if(password.length < 8){
             return res.status(400).json({message:"Password length should be greater than 8"})
@@ -43,4 +48,25 @@ const signUp = async (req, res)=>{
    
 }
 
-module.exports={signUp};
+
+const login = async (req, res)=>{
+    console.log(req.body);
+
+    const {email, password} = req.body;
+
+    if(!email || !password){
+        return res.status(400).json({message:"Please provide all the details"})
+    }
+
+    const userExist =await User.findOne({email});
+  
+    if(!userExist){
+        return res.status(400).json({message:"User not exist"})
+    }
+
+
+    res.status(200).json({message:"Login successfull"})
+
+}
+
+module.exports={signUp, login};
