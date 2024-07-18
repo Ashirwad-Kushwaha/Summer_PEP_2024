@@ -2,12 +2,10 @@ import ReactDOM from 'react-dom/client';
 import "./globalStyle.css";
 import HomePage from './src/pages/homePage';
 import SearchPage from './src/pages/amazonSearchPage';
-
 import {
     createBrowserRouter,
     RouterProvider,
 } from "react-router-dom";
-
 import { useEffect, useState } from 'react';
 import ProductDescription from './src/pages/productDescription';
 import AppContext from './src/context/appContext';
@@ -15,6 +13,7 @@ import SignUp from './src/pages/signUp';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import Login from './src/pages/login';
+import Cart from './src/pages/cart';
 
 const parent = document.getElementById("root");
 const root = ReactDOM.createRoot(parent);
@@ -88,32 +87,39 @@ const categories = ["Fresh", "Amazon Mini Tv", "Sell", "Best Sellers", "Electron
 
 const App = () => {
     // console.log(searchText)
-
+    const [loggedInUser, setLoggedInUser] = useState(null);
     const [searchText, setSearchText] = useState("");
+    const [cart, setCart] = useState([]);
+
+
+
     const router = createBrowserRouter([
         {
             path: "/",
-            element: <HomePage/>
+            element: !loggedInUser ? <Login/> : <HomePage/>
         },
         {
             path: "/search",
-            element: <SearchPage/>
+            element: !loggedInUser ? <Login/> : <SearchPage/>
         },
         {
             path: "/description/:id",
-            element: <ProductDescription/>
+            element: !loggedInUser ? <Login/> : <ProductDescription/>
         },
         {
             path: "/signup",
-            element: <SignUp/>
+            element:loggedInUser ? <HomePage/> : <SignUp/>
         },
         {
             path: "/login",
-            element: <Login/>
+            element:loggedInUser ? <HomePage/> : <Login/>
+        },
+        {
+            path: "/cart",
+            element: !loggedInUser ? <Login/> : <Cart/>
         }
     ])
 
-    const [cart, setCart] = useState([]);
     const addToCart = (elem) => {
         const isPresent = cart.findIndex((cI) => cI.id === elem.id);
         if(isPresent === -1){
@@ -138,16 +144,24 @@ const App = () => {
         }
 
     }
-
     console.log(cart);
 
+    const appLogin = (user) =>{
+        setLoggedInUser(user);
+    }
+
+
     const contextValues = {
+        loggedInUser,
         cart,
         addToCart,
         searchText,
         setSearchText,
-        categories
+        categories,
+        appLogin
     }
+
+    console.log("State", loggedInUser);
 
     return (
         <>

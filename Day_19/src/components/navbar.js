@@ -5,6 +5,18 @@ import AppContext from "../context/appContext";
 
 const Navbar = ({openSearchPage})=>{
     const {setSearchText, cart} = useContext(AppContext);
+    let {loggedInUser} = useContext(AppContext);
+
+    // console.log(loggedInUser);
+
+    if(loggedInUser===null){
+        loggedInUser = {
+            name: "Guest"
+        }
+    }
+
+
+
     const handleSearch = (e)=>{
         setSearchText(e.target.value);
     }
@@ -22,8 +34,12 @@ const Navbar = ({openSearchPage})=>{
             <button id='search-btn' onClick={openSearchPage}><IoSearch />
             </button>
         </div>
-        <p id='account'>Hello! <br /> Ashirwad</p>
+        <p id='account'>Hello! <br /> {
+            loggedInUser.name
+        }</p>
+        <Link to='/cart' style={{ textDecoration: 'none' }}>
         <p id='cart' title={JSON.stringify(cart)}>Cart</p>
+        </Link>
 
     </nav>
     )

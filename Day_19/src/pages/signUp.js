@@ -2,6 +2,7 @@ import { useState } from "react";
 import useSignUp from "../hooks/useSignUp";
 import "../../globalStyle.css";
 import Navbar from "../components/navbar";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
     const { signUp } = useSignUp();
@@ -37,6 +38,7 @@ const SignUp = () => {
                 }} />
                 <button onClick={validate}>Sign Up</button>
             </div>
+            <Link to="/login">Already have an account?</Link>
         </div>
         </>
     )

@@ -1,9 +1,18 @@
+import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
+import AppContext from "../context/appContext";
 
 const useLogin = () => {
+    const {appLogin} = useContext(AppContext);
+
+    const navigate = useNavigate();
+    
+
     const login = async ({ email, password }) => {
         console.log("Login Called");
 
+        try {
         const URL = "http://localhost:1400/api/v1/auth/login";
 
         const OPTIONS = {
@@ -14,14 +23,17 @@ const useLogin = () => {
             body: JSON.stringify({ email, password }),
         };
 
-        try {
             const res = await fetch(URL, OPTIONS);
             if (!res.ok) {
                 const errorData = await res.json();
                 throw new Error(errorData.message || "Failed to log in");
             }
-            const data = await res.json();
+            data = await res.json();
             toast.success(data.message || "Login successful!");
+            if(data.status === "success"){
+                appLogin(data.data.user);
+                localStorage.setItem("token", data.data.token);
+            }
         } catch (error) {
             console.error("Error during login:", error);
             if (error.message) {
@@ -30,6 +42,8 @@ const useLogin = () => {
                 toast.error("Something went wrong during login");
             }
         }
+
+
     };
 
     return { login };

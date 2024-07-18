@@ -306,6 +306,7 @@ nav {
 
     .signUpParent{
         display: flex;
+        flex-direction: column;
         justify-content: center;
         align-items: center;
         height: 100vh;
@@ -351,3 +352,20 @@ nav {
             
         }
     }
+
+
+.cartItem{
+    display: flex;
+    border: 2px solid black;
+    padding: 20px;
+    margin: 10px;
+
+    .des{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 10px;
+        margin-left: 10px;
+    }
+
+}
