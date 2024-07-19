@@ -1,3 +1,4 @@
+import "../../globalStyle.css";
 import { useState } from "react";
 import useSignup from "../hooks/useSignup";
 
@@ -26,9 +27,11 @@ const SignupPage = () => {
     }
 
     return (
-        <div style={SignupPageStyle}>
-        <input type="email" value={email} onChange={(e) => setEmail(e.target.value)}/>
-        <input type="password" value={password} onChange={(e) => setPassword(e.target.value)}/>
+        <div className="auth-page">
+        <label htmlFor="email">Email:</label>
+        <input type="email" placeholder="Enter your email" value={email} onChange={(e) => setEmail(e.target.value)}/>
+        <label htmlFor="password">Password:</label>
+        <input type="password" placeholder="Enter your password" value={password} onChange={(e) => setPassword(e.target.value)}/>
         <button onClick={handleSubmit}>SignUp</button>
         </div>
     )
