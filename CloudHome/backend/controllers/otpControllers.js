@@ -10,8 +10,8 @@ const setOTPMail = async (email, otp) =>{
             secure: true,
             port: 465,
             auth: {
-                user: "home.cloud.web.dev.project@gmail.com",
-                pass: "eqkjdwjsihzeztkv",
+                user: process.env.OTP_EMAIL,
+                pass: process.env.OTP_PASSWORD,
             },
         })
         
