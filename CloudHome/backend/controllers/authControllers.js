@@ -6,13 +6,10 @@ const getUserByEmail = async (email) => {
     return user;
 };
 
-const generateJWTtoken = (user) => {
+const generateJWTtoken = (obj) => {
     const token = jwt.sign({
-        exp: 300,
-        data: {
-            userId: user._id,
-            email: user.email
-        }
+        exp: Math.floor(Date.now() / 1000) + (60 * 60),
+        data: obj,
     },
         process.env.JWT_SECRET_KEY
     );

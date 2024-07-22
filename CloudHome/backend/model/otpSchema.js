@@ -5,7 +5,7 @@ const { ObjectId } = mongoose.Schema.Types;
 
 const otpSchema = new mongoose.Schema({
     otp: {
-        type: Number,
+        type: String,
         required: true
     },
     email: {
@@ -20,16 +20,11 @@ const otpSchema = new mongoose.Schema({
     isVerified:{
         type: Boolean,
         default: false
-    },
-    createdAt: {
-        type: Date,
-        default: Date.now(),
-    },
-    updatedAt: {
-        type: Date,
-        default: Date.now(),
-    },  
-})
+    }
+
+},
+  { timestamps: true}
+)
 
 otpSchema.methods.verifyOtp = async (otp, hashedOtp) => {
     return bcrypt.compare(otp, hashedOtp);
