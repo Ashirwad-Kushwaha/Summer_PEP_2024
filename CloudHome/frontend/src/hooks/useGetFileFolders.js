@@ -6,10 +6,11 @@ const useGetFileFolders = () => {
 
     const [fileFolders, setFileFolders] = useState([])
 
-    const getFileFolders = async () => {
+    const getFileFolders = async (parentId = null) => {
         try{
             const res = await fetch(`${process.env.BACKEND_URL}/api/v1/file-folder`, {
-                method: "GET",
+                method: "POST",
+                body: JSON.stringify({parentId}),
                 headers: {
                     "content-Type": "application/json",
                     authorization: "Bearer " + token,
@@ -23,9 +24,7 @@ const useGetFileFolders = () => {
         }
     }
 
-    useEffect(()=>{
-        getFileFolders();
-    }, [])
+
 
     return {getFileFolders, fileFolders}
 
