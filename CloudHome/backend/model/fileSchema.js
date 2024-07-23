@@ -33,6 +33,9 @@ const fileFolderSchema = mongoose.Schema({
             ref: "FileFolder",
         }
     ],
+    metaData: {
+        type: Object,
+    }
 
 }, { timestamps: true }
 );
