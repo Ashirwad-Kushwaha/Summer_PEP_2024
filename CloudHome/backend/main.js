@@ -4,10 +4,10 @@ require("./config/db.js");
 const authRouter = require('./routes/authRoutes');
 const express = require('express');
 const cors = require('cors');
-const { generateOtp } = require('./controllers/otpControllers.js');
 const otpRouter = require('./routes/otpRoutes.js');
 const verifyToken = require('./middlewares/verifyToken.js');
 const folderRouter = require('./routes/folderRoutes.js');
+const filefolderRouter = require('./routes/fileFolderRoutes.js');
 
 const app = express();
 
@@ -22,6 +22,8 @@ app.use(verifyToken);
 app.use("/api/v1/otp", otpRouter)
 
 app.use("/api/v1/folder", folderRouter)
+
+app.use("/api/v1/file-folder", filefolderRouter)
 
 app.get("/", (req, res) => {
     res.send("App is running.........");
