@@ -5,12 +5,12 @@ const useCreateFolder = () =>{
     const {token} = useSelector((e) => e.auth);
 
 
-    const createFolder = async ({name}) => {
+    const createFolder = async ({name, parentId}) => {
         try {
 
             const res = await fetch(`${process.env.BACKEND_URL}/api/v1/folder/create`, {
                 method: "POST",
-                body: JSON.stringify({name}),
+                body: JSON.stringify({name, parentId}),
                 headers: {
                     "content-Type": "application/json",
                     authorization: "Bearer " + token,
