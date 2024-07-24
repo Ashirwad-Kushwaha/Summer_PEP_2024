@@ -90,7 +90,9 @@ const HomePage = () => {
      {
        fileFolders.map((elem) => (
          <div key={elem._id} className="file-folder" onDoubleClick={() => handleDoubleClick(elem)}>
+           <p>
            {elem.name}
+           </p>
          </div>
        ))
      }
